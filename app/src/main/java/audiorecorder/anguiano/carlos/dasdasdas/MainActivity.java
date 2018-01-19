@@ -1,6 +1,7 @@
 package audiorecorder.anguiano.carlos.dasdasdas;
 
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,8 +19,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        player = MediaPlayer.create(this, R.raw.mpthreetest);
+        String pathAudio = "/storage/emulated/0/SoundRecorder/Mi grabación_6.mp4";
+//        player = MediaPlayer.create(this, R.raw.mpthreetest);
+        player = MediaPlayer.create(this, Uri.parse("file://" + pathAudio));
+//        player = MediaPlayer.create(this, Uri.parse("file:///storage/emulated/0/SoundRecorder/Mi grabación_5.mp4"));
+        System.out.println("");
 
         setPlayPauseButton();
         setSpeedOptions();
@@ -60,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void changeplayerSpeed(float speed) {
-        // this checks on API 23 and up
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (player.isPlaying()) {
                 player.setPlaybackParams(player.getPlaybackParams().setSpeed(speed));
