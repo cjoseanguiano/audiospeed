@@ -28,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     // speed values displayed in the spinner
     private String[] getSpeedStrings() {
-        return new String[]{"1.0", "1.2", "1.4", "1.6", "1.8", "2.0"};
+        return new String[]{"0.5", "1.2", "1.4", "1.6", "1.8", "2.0"};
+//        return new String[]{"1.0", "1.2", "1.4", "1.6", "1.8", "2.0"};
     }
 
     private void setSpeedOptions() {
